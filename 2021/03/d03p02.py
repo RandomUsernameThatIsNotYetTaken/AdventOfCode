@@ -3,7 +3,11 @@ oxygen = []
 co2 = []
 
 
+<<<<<<< HEAD
 def filterCo2down(array, char, position):
+=======
+def filterCo2down(transposed, array, char, position):
+>>>>>>> 682df23c0a4170bdce63dcfa5b881682b3dbc0d3
     print('Filtering co2 down')
     print(array)
     print('Length: '+ str(len(array)))
@@ -17,6 +21,10 @@ def filterCo2down(array, char, position):
     print('New Array Length: '+ str(len(new_array)))
     if len(new_array) == 1:
         print('Returning new array')
+<<<<<<< HEAD
+=======
+        print(new_array)
+>>>>>>> 682df23c0a4170bdce63dcfa5b881682b3dbc0d3
         return new_array
     elif len(new_array) == 0:
         print('WTF')
@@ -33,10 +41,17 @@ def filterCo2down(array, char, position):
         else:
             least_common_char = least_common_char[-1]
         print('Least common char: '+ str(least_common_char[0]))
+<<<<<<< HEAD
         return filterCo2down(new_array, least_common_char[0], position)
 
 
 def filterOxygendown(array, char, position):
+=======
+        return filterCo2down(transposed, new_array, least_common_char[0], position)
+
+
+def filterOxygendown(transposed, array, char, position):
+>>>>>>> 682df23c0a4170bdce63dcfa5b881682b3dbc0d3
     print('Filtering oxygen down: ' + str(char) + ' ' + str(position))
     print(array)
     print('Length: '+ str(len(array)))
@@ -52,6 +67,10 @@ def filterOxygendown(array, char, position):
     print('New Array Length: '+ str(len(new_array)))
     if len(new_array) == 1:
         print('Returning new array')
+<<<<<<< HEAD
+=======
+        print(new_array)
+>>>>>>> 682df23c0a4170bdce63dcfa5b881682b3dbc0d3
         return new_array
     elif len(new_array) == 0:
         print('WTF')
@@ -67,7 +86,11 @@ def filterOxygendown(array, char, position):
         else:
             most_common_char = most_common_char[0]
         print('Most common char: '+ str(most_common_char[0]))
+<<<<<<< HEAD
         return filterOxygendown(new_array, most_common_char[0], position)
+=======
+        return filterOxygendown(transposed, new_array, most_common_char[0], position)
+>>>>>>> 682df23c0a4170bdce63dcfa5b881682b3dbc0d3
 
 
 with open("./d03p01.input", "r") as f:
@@ -78,11 +101,19 @@ with open("./d03p01.input", "r") as f:
     least_common_char = Counter(''.join(transposed[0])).most_common()[-1]
     print('Most common char: '+ most_common_char[0])
     print('Entering filterOxygendown')
+<<<<<<< HEAD
     oxygen = filterOxygendown(lines, most_common_char[0],0)
     print('Found Oxygen: '+ str(oxygen))
     print('Least common char: '+ least_common_char[0])
     print('Entering filterCo2down')
     co2 = filterCo2down(lines, least_common_char[0],0)
+=======
+    oxygen = filterOxygendown(transposed, lines, most_common_char[0],0)
+    print('Found Oxygen: '+ str(oxygen))
+    print('Least common char: '+ least_common_char[0])
+    print('Entering filterCo2down')
+    co2 = filterCo2down(transposed, lines, least_common_char[0],0)
+>>>>>>> 682df23c0a4170bdce63dcfa5b881682b3dbc0d3
     print('Found Co2: '+ str(co2))
     print(oxygen)
     print(co2)
