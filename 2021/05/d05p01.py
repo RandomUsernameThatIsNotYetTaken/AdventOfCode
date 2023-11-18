@@ -1,10 +1,10 @@
     
 def parseLine(line):
     arr = line.split()
-    x1 = arr[0].split(",")[0]
-    y1 = arr[0].split(",")[1]
-    x2 = arr[2].split(",")[0]
-    y2 = arr[2].split(",")[1]
+    x1 = int(arr[0].split(",")[0])
+    y1 = int(arr[0].split(",")[1])
+    x2 = int(arr[2].split(",")[0])
+    y2 = int(arr[2].split(",")[1])
     return (min(x1,x2), min(y1,y2), max(x1,x2), max(y1,y2))
 
 def findHighestX(lines):
@@ -33,34 +33,34 @@ def createGrid(x, y):
 
 def printGrid(grid):
     grid_transposed=list(map(list,zip(*grid) ))
-
     for row in grid_transposed:
-        print(''.join(str(row)), end='\n')
+        strRow = [str(i) for i in row]
+        print(''.join(strRow))
 
 def drawLine(grid, line):
     x1, y1, x2, y2 = line
-    if(line[0] == line[2]):
+    if(x1 == x2 ):
     #    print("Vertical")
      #   print("Drawing line [x1,y1,x2,y2]: ", line)
-        for y in range(int(line[1]), int(line[3])+1):
+        for y in range(y1, y2+1):
             grid[int(line[0])][y] += 1
         return grid 
-    if(line[1] == line[3]):
+    if(y1 == y2):
       #  print("Horizontal")
       #  print("Drawing line [x1,y1,x2,y2]: ", line)
-        for x in range(int(line[0]), int(line[2])+1):
+        for x in range(x1, x2+1):
             grid[x][int(line[1])] +=1
         return grid
     else:
         #print("Diagonal, Skipping")
         return grid
 
-def countDangerousPoints(grid):
+def countDangerousPoints(grid,maxX,maxY):
     count = 0
-    for row in grid:
-        for i in range(len(row)):
-            if row[i] > 1: 
-                count = count+1
+    for x in range(maxX+1):
+        for y in range(maxY+1):
+            if grid[x][y] > 1:
+                count += 1
     return count
 
 with open("d05p01.input", "r") as f:
@@ -68,7 +68,7 @@ with open("d05p01.input", "r") as f:
     lines = [parseLine(line) for line in content]
     maxX = findHighestX(lines)
     maxY = findHighestY(lines)
-    print("Creating grid for max X and Y: ", maxX, maxY, "...")
+    #print("Creating grid for max X and Y: ", maxX, maxY, "...")
     grid = createGrid(maxX, maxY)
     print(len(grid), len(grid[0]))
     #printGrid(grid)
@@ -78,8 +78,8 @@ with open("d05p01.input", "r") as f:
         grid = drawLine(grid, line)
    # print("Lines drawn!")
    # print("Printing grid...")
-    #printGrid(grid)
+ #   printGrid(grid)
  #   print("Grid printed!")
-    countDangerousPoints = countDangerousPoints(grid)
- #   print("Counting dangerous points...")
+    countDangerousPoints = countDangerousPoints(grid, maxX, maxY)
+    print("Counting dangerous points...")
     print("Dangerous points: ", countDangerousPoints)
