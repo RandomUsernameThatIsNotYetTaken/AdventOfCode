@@ -40,14 +40,14 @@ def printGrid(grid):
 def drawLine(grid, line):
     x1, y1, x2, y2 = line
     if(line[0] == line[2]):
-        print("Vertical")
-        print("Drawing line [x1,y1,x2,y2]: ", line)
+    #    print("Vertical")
+     #   print("Drawing line [x1,y1,x2,y2]: ", line)
         for y in range(int(line[1]), int(line[3])+1):
             grid[int(line[0])][y] += 1
         return grid 
     if(line[1] == line[3]):
-        print("Horizontal")
-        print("Drawing line [x1,y1,x2,y2]: ", line)
+      #  print("Horizontal")
+      #  print("Drawing line [x1,y1,x2,y2]: ", line)
         for x in range(int(line[0]), int(line[2])+1):
             grid[x][int(line[1])] +=1
         return grid
@@ -72,14 +72,14 @@ with open("d05p01.input", "r") as f:
     grid = createGrid(maxX, maxY)
     print(len(grid), len(grid[0]))
     #printGrid(grid)
-    print("Grid created!")
-    print("Drawing lines...")
+ #   print("Grid created!")
+ #   print("Drawing lines...")
     for line in lines:
         grid = drawLine(grid, line)
-    print("Lines drawn!")
-    print("Printing grid...")
+   # print("Lines drawn!")
+   # print("Printing grid...")
     #printGrid(grid)
-    print("Grid printed!")
+ #   print("Grid printed!")
     countDangerousPoints = countDangerousPoints(grid)
-    print("Counting dangerous points...")
+ #   print("Counting dangerous points...")
     print("Dangerous points: ", countDangerousPoints)
