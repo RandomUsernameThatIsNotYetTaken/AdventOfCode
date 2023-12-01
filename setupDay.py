@@ -6,6 +6,12 @@ import sys
 import subprocess
 
 
+#takes year and day as an input or defaults to current year and day
+year = sys.argv[1] if len(sys.argv) > 1 else "2023"
+day = sys.argv[2] if len(sys.argv) > 2 else datetime.datetime.now().day
+day = str(day).zfill(2)
+
+
 # Check Python version
 if sys.version_info < (3, 9):
   print("Python version 3.9 or higher is required.")
