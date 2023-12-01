@@ -46,3 +46,4 @@ subprocess.run(f"cd {day_folder} && aocd {year} {day}  --example >{year}_{day}_s
 
 
 subprocess.run(f"cd {day_folder} && echo 'with open(\"{year}_{day}.input\", \"r\") as f:' >> day{day}_part1.py", shell=True)
+subprocess.run(f"cd {day_folder} && chmod +x day{day}_part1.py", shell=True)
