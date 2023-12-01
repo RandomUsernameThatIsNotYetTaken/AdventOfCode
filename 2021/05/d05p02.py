@@ -52,10 +52,10 @@ def drawLine(grid, line):
             Y_incr = -1
             yMin = y1
             yMax = y2-1
-        print("Drawing Vertical line [x1,y1,x2,y2]: ", line, Y_incr)
+    #    print("Drawing Vertical line [x1,y1,x2,y2]: ", line, Y_incr)
         (X, Y) = (x1, yMin)
         while True:
-            print("grid[x1][Y] = ", x1,Y)
+     #       print("grid[x1][Y] = ", x1,Y)
             grid[x1][Y] += 1
             Y += Y_incr
             if (Y) == (yMax):
@@ -69,10 +69,10 @@ def drawLine(grid, line):
             X_incr = -1
             xMin = x1
             xMax = x2-1
-        print("Drawing Horizontal line [x1,y1,x2,y2]: ", line, X_incr)
+   #     print("Drawing Horizontal line [x1,y1,x2,y2]: ", line, X_incr)
         (X, Y) = (xMin, y1)
         while True:
-            print("grid[X][y1] = ", X,y1)
+      #      print("grid[X][y1] = ", X,y1)
             grid[X][y1] += 1
             X += X_incr
             if (X) == (xMax):
@@ -97,11 +97,11 @@ def drawLine(grid, line):
         print("Drawing Diagonal line [x1,y1,x2,y2]: ", line, X_incr, Y_incr)
         (X, Y) = (x1, y1)
         while True:
-            print("grid[X][Y] = ", X,Y)
+   #         print("grid[X][Y] = ", X,Y)
             grid[X][Y] += 1
             X += X_incr
             Y += Y_incr
-            print(X,Y,xMax,yMax)
+       #     print(X,Y,xMax,yMax)
             if (X, Y) == (xMax, yMax):
                 break
         return grid
@@ -122,15 +122,15 @@ with open("d05p01.input", "r") as f:
     print("Creating grid for max X and Y: ", maxX, maxY, "...")
     grid = createGrid(maxX, maxY)
     print(len(grid), len(grid[0]))
-    printGrid(grid)
-    print("Grid created!")
-    print("Drawing lines...")
+   # printGrid(grid)
+   # print("Grid created!")
+   # print("Drawing lines...")
     for line in lines:
         grid = drawLine(grid, line)
-    print("Lines drawn!")
-    print("Printing grid...")
-    printGrid(grid)
-    print("Grid printed!")
+  #  print("Lines drawn!")
+  #  print("Printing grid...")
+  #  printGrid(grid)
+   # print("Grid printed!")
     countDangerousPoints = countDangerousPoints(grid, maxX, maxY)
     print("Counting dangerous points...")
     print("Dangerous points: ", countDangerousPoints)
