@@ -1,19 +1,8 @@
 def replaceRegex(line):
-  print(line)
-  numbers = ['one','two','three','four','five','six','seven','eight','nine','zero']
-  numbers_reverso = ['eno','owt','eerht','ruof','evif','xis','neves','thgie','enin','orez']
-  numbers_replacement = ['o1ne','t2wo','th3ree','fo4ur','fi5ve','s6ix','seve7n','ei8ght','n9ine','z0ero']
-  
-  for number in numbers:
-    if number in line:
-      print(number+str(numbers.index(number)+1))
-      line = line.replace(number, numbers_replacement[numbers.index(number)])
-  for number_reverso in numbers_reverso:
-    line_reversed = line[::-1]
-    if number_reverso in line_reversed:
-      line_reversed = line_reversed.replace(number_reverso,numbers_replacement[numbers_reverso.index(number_reverso)])
-      line = line_reversed[::-1]
-  print(line)
+  numbers_dictionary = {'one':'o1ne','two':'t2wo','three':'th3ree','four':'fo4ur','five':'fi5ve','six':'s6ix','seven':'seve7n','eight':'ei8ght','nine':'n9ine','zero':'z0ero'}
+  for key in numbers_dictionary:
+    if(key in line):
+      line = line.replace(key,numbers_dictionary[key])
   return line
 
 def getDigits(line):
