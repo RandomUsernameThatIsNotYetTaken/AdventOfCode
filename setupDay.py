@@ -43,7 +43,20 @@ if not os.path.exists(day_folder):
 subprocess.run(f"cd {day_folder} && touch {year}_{day}.input", shell=True)
 subprocess.run(f"cd {day_folder} && aocd {year} {day} > {year}_{day}.input", shell=True)
 subprocess.run(f"cd {day_folder} && aocd {year} {day}  --example >{year}_{day}_sample.input", shell=True)
-
-
 subprocess.run(f"cd {day_folder} && echo 'with open(\"{year}_{day}.input\", \"r\") as f:' >> day{day}_part1.py", shell=True)
 subprocess.run(f"cd {day_folder} && chmod +x day{day}_part1.py", shell=True)
+
+# Open the sample input file and strip lines that contain "--------"
+with open(f"{day_folder}/{year}_{day}_sample.input", "r") as f:
+  sample_input = f.read().split('--------------------------------------------------------------------------------')
+  sample_input = sample_input[0]
+  sample_input = sample_input.split('\n')
+  sample_input = sample_input[3:]
+  print(sample_input)
+
+# Write sample_input to the sample.input file
+with open(f"{day_folder}/{year}_{day}_sample.input", "w") as f:
+  f.write('\n'.join(sample_input))
+  
+# Rest of your code...
+
