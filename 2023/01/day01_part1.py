@@ -1,6 +1,6 @@
 
 
-def getDigits(line):)
+def getDigits(line):
   digits = []
   for c in line:
     if c.isdigit():
